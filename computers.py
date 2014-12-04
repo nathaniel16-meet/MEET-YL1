@@ -1,1 +1,3 @@
-print ("joss, spice,quel")
+print("joss")
+print("spice")
+print("quel")
