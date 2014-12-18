@@ -1,0 +1,6 @@
+import random
+def flipCoin():
+	if (random.random() >= 0.5) and (input("Next?") == "n":
+		print("H")
+	else:
+		print("T")
