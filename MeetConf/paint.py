@@ -20,7 +20,6 @@ def changeColor():
 		currentColor = 0
 	else:
 		currentColor += 1
-	print (currentColor)
 turtle.getscreen().onkeypress(changeColor,"n")
 ######
 #changeShape function

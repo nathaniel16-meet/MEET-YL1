@@ -42,7 +42,7 @@ def enlarge():
 	turtle.shapesize(lengthSize+1,widthSize+1)
 	lengthSize += 1
 	widthSize += 1
-turtle.onkeypress(enlarge,"plus")
+turtle.onkeypress(enlarge,"equal")
 def reduceSize():
 	global lengthSize
 	global widthSize
