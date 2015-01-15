@@ -1,0 +1,70 @@
+import turtle
+#Initialization
+turtle.speed(0)
+turtle.pu()
+######
+#changeColor variables
+colorList = ["black","blue", "red", "green", "yellow", "magenta", "orange", "purple"]
+currentColor = 1
+#changeShape variables
+shapeList = ["circle", "square", "triangle", "arrow"]
+currentShape = 0
+#changeSize
+lengthSize = 1
+widthSize = 1
+def changeColor():
+	global currentColor
+	turtle.pencolor(colorList[currentColor])
+	turtle.fillcolor(colorList[currentColor])
+	if(currentColor >= len(colorList)-1):
+		currentColor = 0
+	else:
+		currentColor += 1
+turtle.getscreen().onkeypress(changeColor,"n")
+######
+#changeShape function
+def changeShape():
+	global shapeList
+	global currentShape
+	turtle.shape(shapeList[currentShape])
+	if currentShape >= len(shapeList)-1:
+		currentShape = 0
+	else:
+		currentShape += 1
+turtle.onkeypress(changeShape,"c")
+######
+#changeSize function
+def enlarge():
+	global lengthSize
+	global widthSize
+	turtle.resizemode("user")
+	turtle.shapesize(lengthSize+1,widthSize+1)
+	lengthSize += 1
+	widthSize += 1
+turtle.onkeypress(enlarge,"equal")
+def reduceSize():
+	global lengthSize
+	global widthSize
+	turtle.resizemode("user")
+	if lengthSize > 1 and widthSize >1:
+		turtle.shapesize(lengthSize-1,widthSize-1)
+		lengthSize -= 1
+		widthSize -= 1
+	else:
+		turtle.shapesize(1,1)
+		lengthSize = 1
+		widthSize = 1
+turtle.onkeypress(reduceSize,"minus")
+#Stamp function and definition
+def stamp(x,y):
+	turtle.pu()
+	turtle.goto(x,y)
+	turtle.stamp()
+
+turtle.ondrag(stamp, btn = 1, add = True)
+######
+turtle.onscreenclick(turtle.goto, btn = 1, add = True)
+turtle.onkeypress(turtle.clear, "space")
+print(turtle.shapesize(), turtle.turtlesize())
+turtle.getscreen().listen()
+turtle.mainloop()
